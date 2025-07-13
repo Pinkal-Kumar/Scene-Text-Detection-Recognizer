@@ -1,0 +1,13 @@
+1. yolo training testing done.
+- command: python Trainings/Detector_Training/train_yolo_detector.py
+2. Visualise module testing done.
+- command: python Visualiser/visualise.py --input data/Total-Text/Test/img6.jpg --detector_weights Trained_weights/yolo_weghts/best.pt --recognizer_weights 'microsoft/trocr-large-printed' --vis_output 'vis_output'
+3. Evaluation module testing done.
+- command: python Evaluator/evaluate.py
+4. Application testing done.
+- command: python app.py
+5. curl request testing done.
+- command: curl -X POST "http://localhost:8000/infer/" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "image=@/media/pinkal/Data/Scene-Text-Detection-Recognizer/data/Total-Text/Test/img6.jpg"

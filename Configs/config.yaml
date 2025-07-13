@@ -1,0 +1,32 @@
+# ====================================
+# Scene Text Detection Pipeline Config
+# ====================================
+
+# ---------- Raw Data Paths ----------
+raw_train_images: data/Total-Text/Train
+raw_train_labels: data/Total-Text/Annotation/groundtruth_polygonal_annotation/Train
+raw_val_images: data/Total-Text/Test
+raw_val_labels: data/Total-Text/Annotation/groundtruth_polygonal_annotation/Test
+
+# ---------- Processed Data Paths ----------
+processed_train_images: Processed_Dataset/train/images
+processed_train_labels: Processed_Dataset/train/labels
+processed_val_images: Processed_Dataset/val/images
+processed_val_labels: Processed_Dataset/val/labels
+yaml_output_path: Processed_Dataset/data.yaml
+
+# ---------- Training Parameters ----------
+model_name: yolov8x-seg.pt
+epochs: 100
+img_size: 640
+
+# ---------- Inference/Evaluation ----------
+yolo_weights: Trained_weights/yolo_weights/runs/segment/train/weights/best.pt
+recognizer_model: microsoft/trocr-large-printed
+iou_thresh: 0.5
+text_thresh: 0.8
+max_images: 2 #100
+
+# ---------- Evaluation Dataset ----------
+image_dir: data/Total-Text/Test
+label_dir: data/Total-Text/Annotation/groundtruth_polygonal_annotation/Test
