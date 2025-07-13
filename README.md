@@ -73,20 +73,20 @@ python Visualiser/visualise.py \
 ### 📊 Evaluation Module
 Evaluate detection and recognition performance using:
 
-- Text Matching Precision (words):
+- Text Matching Precision (words level):
 
 - Exact Match and Fuzzy Match evaluation
 
 Localization (YOLO detection) Precision:
 
-`81.65%`
+`81.62%`
 
 #### 📋 Evaluation Results
 
 | Model Combination                | Fuzzy (80%) | Fuzzy (90%) | Exact Match  |
 |----------------------------------|-------------|-------------|--------------|
-| YOLOv8-seg + TrOCR Base Stage-1  | 65.62       | 60          | 44           |
-| YOLOv8-seg + TrOCR Large Printed | 68.54       | 62          | 50           |
+| YOLOv8-seg + TrOCR Base Stage-1  | 45.22       | 39.12       | 36.13        |
+| YOLOv8-seg + TrOCR Large Printed | 65.47       | 45.99       | 42.41        |
 
 Run evaluation with:
 
