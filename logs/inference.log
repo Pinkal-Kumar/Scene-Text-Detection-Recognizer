@@ -1,0 +1,81 @@
+2025-07-13 14:27:04,082 - INFO - Inference engine and models loaded successfully.
+2025-07-13 14:29:09,822 - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 89, in infer_text_from_image
+    polygon = [(float(x), float(y)) for x, y in seg]
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 89, in <listcomp>
+    polygon = [(float(x), float(y)) for x, y in seg]
+ValueError: too many values to unpack (expected 2)
+2025-07-13 14:31:56,059 - INFO - Inference engine and models loaded successfully.
+2025-07-13 14:32:27,460 - INFO - Recognised text from the given image : LOOKOUT PEAK THE PARA LOSHAUT 1.49984-4
+2025-07-13 14:51:14,545 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.160.212:8000
+2025-07-13 14:51:14,545 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-13 14:51:14,547 - INFO -  * Restarting with stat
+2025-07-13 14:51:17,331 - WARNING -  * Debugger is active!
+2025-07-13 14:51:17,429 - INFO -  * Debugger PIN: 110-154-594
+2025-07-13 14:54:50,387 - INFO - Inference engine and models loaded successfully.
+2025-07-13 14:54:50,430 - INFO - 127.0.0.1 - - [13/Jul/2025 14:54:50] "[33mGET /docs HTTP/1.1[0m" 404 -
+2025-07-13 14:55:14,092 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:14] "[35m[1mGET /docs HTTP/1.1[0m" 500 -
+2025-07-13 14:55:15,944 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-07-13 14:55:16,015 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:16] "GET /docs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-13 14:55:16,016 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:16] "GET /docs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-13 14:55:19,906 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:19] "GET /docs?__debugger__=yes&cmd=resource&f=console.png&s=X3yEclijP12TJsVe9ob6 HTTP/1.1" 200 -
+2025-07-13 14:55:21,100 - INFO - 127.0.0.1 - - [13/Jul/2025 14:55:21] "GET /docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-13 14:58:10,493 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.160.212:8000
+2025-07-13 14:58:10,494 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-13 14:58:10,510 - INFO -  * Restarting with stat
+2025-07-13 14:58:13,527 - WARNING -  * Debugger is active!
+2025-07-13 14:58:13,560 - INFO -  * Debugger PIN: 110-154-594
+2025-07-13 15:01:58,606 - INFO - Inference engine and models loaded successfully.
+2025-07-13 15:01:58,607 - INFO - 127.0.0.1 - - [13/Jul/2025 15:01:58] "[33mGET / HTTP/1.1[0m" 404 -
+2025-07-13 15:02:09,840 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-07-13 15:02:10,625 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:10] "[35m[1mGET /docs HTTP/1.1[0m" 500 -
+2025-07-13 15:02:10,678 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:10] "[36mGET /docs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-13 15:02:10,691 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:10] "[36mGET /docs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-13 15:02:10,842 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:10] "GET /docs?__debugger__=yes&cmd=resource&f=console.png&s=mAO0QuEEXoUDfirz9OIE HTTP/1.1" 200 -
+2025-07-13 15:02:10,862 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:10] "[36mGET /docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-07-13 15:02:26,029 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:26] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-13 15:02:26,161 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:26] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-13 15:02:26,161 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:26] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-13 15:02:26,361 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:26] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=mAO0QuEEXoUDfirz9OIE HTTP/1.1" 200 -
+2025-07-13 15:02:26,382 - INFO - 127.0.0.1 - - [13/Jul/2025 15:02:26] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-13 15:07:20,971 - INFO - 127.0.0.1 - - [13/Jul/2025 15:07:20] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-13 15:07:21,047 - INFO - 127.0.0.1 - - [13/Jul/2025 15:07:21] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-13 15:07:21,054 - INFO - 127.0.0.1 - - [13/Jul/2025 15:07:21] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-13 15:07:21,119 - INFO - 127.0.0.1 - - [13/Jul/2025 15:07:21] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=mAO0QuEEXoUDfirz9OIE HTTP/1.1[0m" 304 -
+2025-07-13 15:07:21,150 - INFO - 127.0.0.1 - - [13/Jul/2025 15:07:21] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-07-13 15:09:22,004 - INFO - 127.0.0.1 - - [13/Jul/2025 15:09:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-13 15:09:22,078 - INFO - 127.0.0.1 - - [13/Jul/2025 15:09:22] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-13 15:09:22,083 - INFO - 127.0.0.1 - - [13/Jul/2025 15:09:22] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-13 15:09:22,161 - INFO - 127.0.0.1 - - [13/Jul/2025 15:09:22] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=mAO0QuEEXoUDfirz9OIE HTTP/1.1[0m" 304 -
+2025-07-13 15:09:22,177 - INFO - 127.0.0.1 - - [13/Jul/2025 15:09:22] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-07-13 15:16:05,089 - INFO - Inference engine and models loaded successfully.
+2025-07-13 15:17:08,545 - INFO - Recognised text from the given image : LOOKOUT THE PEAK 1.49984-4 PARA LOSHAUT
+2025-07-13 15:19:00,512 - INFO - Inference engine and models loaded successfully.
+2025-07-13 15:21:43,098 - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 78, in infer_text_from_image
+    image_np = read_imagefile(image)
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 66, in read_imagefile
+    image = Image.open(file.file).convert("RGB")
+  File "/home/pinkal/anaconda3/envs/scene_text/lib/python3.10/site-packages/PIL/Image.py", line 3580, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <tempfile.SpooledTemporaryFile object at 0x7d5f4720f100>
+2025-07-13 15:25:42,379 - INFO - Inference engine and models loaded successfully.
+2025-07-13 15:25:44,044 - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 78, in infer_text_from_image
+    image_np = read_imagefile(image)
+  File "/home/pinkal/Github_Codes/Scene-Text-Detection-Recognizer/fastapiapp.py", line 66, in read_imagefile
+    image = Image.open(file.file).convert("RGB")
+  File "/home/pinkal/anaconda3/envs/scene_text/lib/python3.10/site-packages/PIL/Image.py", line 3580, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <tempfile.SpooledTemporaryFile object at 0x75ec89f66e30>
+2025-07-13 15:27:56,772 - INFO - Inference engine and models loaded successfully.
+2025-07-13 15:28:23,354 - INFO - Recognised text from the given image : LOOKOUT THE PEAK 1.49984-4 PARA LOSHAUT

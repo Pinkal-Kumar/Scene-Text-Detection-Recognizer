@@ -67,6 +67,9 @@ python Visualiser/visualise.py \
 --recognizer_weights 'microsoft/trocr-large-printed' \
 --vis_output 'vis_output'
 ```
+
+![Visualised Output](vis_output/output_1752401650.jpg)
+
 ### 📊 Evaluation Module
 Evaluate detection and recognition performance using:
 
@@ -79,9 +82,11 @@ Localization (YOLO detection) Precision:
 `81.65%`
 
 #### 📋 Evaluation Results
-Model Combination	Fuzzy (80%)	Fuzzy (90%)	Exact Match
-YOLOv8-seg + TrOCR Base Stage-1	✅	✅	✅
-YOLOv8-seg + TrOCR Large Printed	✅	✅	✅
+
+| Model Combination                | Fuzzy (80%) | Fuzzy (90%) | Exact Match  |
+|----------------------------------|-------------|-------------|--------------|
+| YOLOv8-seg + TrOCR Base Stage-1  | 65.62       | 60          | 44           |
+| YOLOv8-seg + TrOCR Large Printed | 68.54       | 62          | 50           |
 
 Run evaluation with:
 
@@ -93,7 +98,7 @@ python Evaluator/evaluate.py
 Start the app to expose a local inference endpoint:
 
 ```bash
-python app.py
+python fastapiapp.py
 ```
 The API provides /infer/ for uploading an image and returning detections and recognized text.
 
@@ -106,3 +111,11 @@ curl -X POST "http://localhost:8000/infer/" \
   -H "Content-Type: multipart/form-data" \
   -F "image=@/media/pinkal/Data/Scene-Text-Detection-Recognizer/data/Total-Text/Test/img6.jpg"
 ```
+
+### 📷 Streamlit simple frontend following by FastAPI app
+
+```bash
+python streamlitapp.py
+```
+
+Thank you!

@@ -7,13 +7,12 @@ import torch
 import logging
 import numpy as np
 from PIL import Image
-from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from Inference_utilities.evaluator import SceneTextEvaluator
+
 # Add current directory to path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 
 # ---------------- Logger Setup ----------------
 LOG_DIR = "logs"
@@ -26,23 +25,16 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# ---------------- FastAPI Setup ----------------
-app = FastAPI(title="Scene Text Detection & Recognition API")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for development
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# ---------------- Flask App Setup ----------------
+app = Flask(__name__)
+CORS(app)
 
 # ---------------- Inference Engine (Global) ----------------
 inference_engine = None
 config = None
 
 # ---------------- Startup Hook ----------------
-@app.on_event("startup")
+@app.before_request
 def load_inference_engine():
     global inference_engine, config
 
@@ -54,8 +46,6 @@ def load_inference_engine():
         config = yaml.safe_load(f)
 
     inference_engine = SceneTextEvaluator(config_path=config_path)
-
-    # Load models using config
     inference_engine.text_thresh = config.get("text_thresh", 0.8)
     inference_engine.max_images = config.get("max_images", 1)
 
@@ -63,28 +53,31 @@ def load_inference_engine():
 
 # ---------------- Helper Function ----------------
 def read_imagefile(file) -> np.ndarray:
-    image = Image.open(file.file).convert("RGB")
+    image = Image.open(file).convert("RGB")
     return cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
 # ---------------- Inference Endpoint ----------------
-@app.post("/infer/")
-async def infer_text_from_image(image: UploadFile = File(...)):
+@app.route("/infer/", methods=["POST"])
+def infer_text_from_image():
     try:
         global inference_engine
         if inference_engine is None:
             raise RuntimeError("Inference engine not initialized.")
 
-        # Save and read input image
-        image_np = read_imagefile(image)
+        if 'image' not in request.files:
+            return jsonify({"error": "No image file provided"}), 400
+
+        image_file = request.files['image']
+        image_np = read_imagefile(image_file)
         tmp_name = f"temp_{uuid.uuid4().hex[:6]}.jpg"
         cv2.imwrite(tmp_name, image_np)
 
-        # Inference
         results = inference_engine.yolo_model(tmp_name)[0]
         predictions = []
 
         if results.masks:
-            for seg in results.masks.xy:
+            polys_boxes = sorted(zip(results.masks.xy, results.boxes.xyxy.tolist()), key=lambda b: b[1][1])
+            for seg, _ in polys_boxes:
                 polygon = [(float(x), float(y)) for x, y in seg]
                 cropped = inference_engine.crop_polygon(image_np, polygon)
                 if cropped.size == 0:
@@ -95,12 +88,14 @@ async def infer_text_from_image(image: UploadFile = File(...)):
 
         os.remove(tmp_name)
         final_text = " ".join(predictions)
-        return JSONResponse(status_code=200, content={"texts": final_text})
+        log_text = f"Recognised text from the given image : {final_text}"
+        logging.info(log_text)
+        return jsonify({"texts": final_text})
 
     except Exception as e:
         logging.exception("Inference failed")
-        return JSONResponse(status_code=500, content={"error": str(e)})
-    
+        return jsonify({"error": str(e)}), 500
+
+# ---------------- Run Server ----------------
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
